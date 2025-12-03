@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Mic, MicOff, Loader2, BrainCircuit,Send } from 'lucide-react';
 import styles from './ChatBot.module.css';
+import Albert_idle from '../assets/Albert_idle.mp4';
+import Albert_talking from '../assets/Albert_talking.mp4';
+
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
@@ -141,8 +144,8 @@ const Chatbot: React.FC = () => {
                 <div className={styles.wave}></div>
                 <div className={styles.wave}></div>
                 <div className={styles.wave}></div>
-                <video ref={idleVideoRef} src="/Albert_idle.mp4" className={`${styles.avatarVideo} ${!isSpeaking ? styles.visible : styles.hidden}`} loop muted playsInline />
-                <video ref={talkingVideoRef} src="/Albert_talking.mp4" className={`${styles.avatarVideo} ${isSpeaking ? styles.visible : styles.hidden}`} loop muted playsInline />
+                <video ref={idleVideoRef} src={Albert_idle} className={`${styles.avatarVideo} ${!isSpeaking ? styles.visible : styles.hidden}`} loop muted playsInline />
+                <video ref={talkingVideoRef} src={Albert_talking} className={`${styles.avatarVideo} ${isSpeaking ? styles.visible : styles.hidden}`} loop muted playsInline />
             </div>
 
             <div className={`${styles.statusText} ${isBusy ? styles.statusLoading : ''}`}>
